@@ -6,6 +6,11 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
 
+  // La función auxiliar para seleccionar un elemento de un array
+  function generarElementoAleatorio(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
   let who = ['El perro', 'Mi abuela', 'El cartero', 'Mi pájaro', 'Un mapache', 'Mi gemelo malvado', 'Un ninja', 'El vecino de arriba', 'Un fantasma'];
   let action = ['se comió', 'orinó sobre', 'aplastó', 'rompió', 'robó', 'confiscó', 'lanzó por la ventana', 'usó de paracaídas', 'hizo explotar'];
   let what = ['mi tarea', 'mi teléfono', 'el coche', 'mi única neurona', 'el último rollo de papel higiénico', 'mi patineta voladora', 'mis ganas de vivir', 'un calcetín limpio'];
@@ -13,16 +18,21 @@ window.onload = function() {
   let where = ['en el techo de la casa', 'dentro del refrigerador', 'bajo la cama de mi perro', 'en la boca de un volcán', 'en la ferretería'];
   let how = ['usando telequinesis', 'con un baile ritual', 'disfrazado de payaso', 'con una cuchara oxidada', 'mientras gritaba "¡Libertad!"'];
 
-  let randomWho = who[Math.floor(Math.random() * who.length)];
-  let randomAction = action[Math.floor(Math.random() * action.length)];
-  let randomWhat = what[Math.floor(Math.random() * what.length)];
-  let randomWhen = when[Math.floor(Math.random() * when.length)];
-  let randomWhere = where[Math.floor(Math.random() * where.length)];
-  let randomHow = how[Math.floor(Math.random() * how.length)];
-
-  let excuse = randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen + " " + randomWhere + " " + randomHow;
-
-  document.getElementById("excuse").innerHTML = excuse;
+  // La nueva función que genera la excusa completa
+  function generarExcusa() {
+    let randomWho = generarElementoAleatorio(who);
+    let randomAction = generarElementoAleatorio(action);
+    let randomWhat = generarElementoAleatorio(what);
+    let randomWhen = generarElementoAleatorio(when);
+    let randomWhere = generarElementoAleatorio(where);
+    let randomHow = generarElementoAleatorio(how);
+    
+    // Retorna la excusa construida
+    return randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen + " " + randomWhere + " " + randomHow;
+  }
+  
+  // Llamamos a la nueva función y asignamos el resultado al HTML
+  document.getElementById("excuse").innerHTML = generarExcusa();
 
 };
 
