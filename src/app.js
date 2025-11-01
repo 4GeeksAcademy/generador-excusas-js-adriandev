@@ -17,22 +17,9 @@ window.onload = function() {
   let when = ['antes de la clase', 'mientras dormía', 'mientras hacía ejercicio', 'durante mi almuerzo', 'mientras rezaba', 'justo después de ver un OVNI', 'mientras hacía un live de TikTok', 'en el peor momento posible', 'después de beber mate caducado', 'al sonar mi alarma'];
   let where = ['en el techo de la casa', 'dentro del refrigerador', 'bajo la cama de mi perro', 'en la boca de un volcán', 'en la ferretería'];
   let how = ['usando telequinesis', 'con un baile ritual', 'disfrazado de payaso', 'con una cuchara oxidada', 'mientras gritaba "¡Libertad!"'];
-
-  // La nueva función que genera la excusa completa
-  function generarExcusa() {
-    let randomWho = generarElementoAleatorio(who);
-    let randomAction = generarElementoAleatorio(action);
-    let randomWhat = generarElementoAleatorio(what);
-    let randomWhen = generarElementoAleatorio(when);
-    let randomWhere = generarElementoAleatorio(where);
-    let randomHow = generarElementoAleatorio(how);
-    
-    // Retorna la excusa construida
-    return randomWho + " " + randomAction + " " + randomWhat + " " + randomWhen + " " + randomWhere + " " + randomHow;
-  }
   
   // Llamamos a la nueva función y asignamos el resultado al HTML
-  document.getElementById("excuse").innerHTML = generarExcusa();
+  document.getElementById("excuse").innerHTML = `${generarElementoAleatorio(who)} ${generarElementoAleatorio(action)} ${generarElementoAleatorio(what)} ${generarElementoAleatorio(when)} ${generarElementoAleatorio(where)} ${generarElementoAleatorio(how)}`;
 
 };
 
